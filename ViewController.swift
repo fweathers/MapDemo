@@ -66,6 +66,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         map.addAnnotation(annotation)
         
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        print(locations)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
