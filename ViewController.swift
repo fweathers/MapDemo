@@ -24,19 +24,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
 
-        var latitude:CLLocationDegrees = 43.095181
-        var longitude:CLLocationDegrees = -79.006424
+        let latitude:CLLocationDegrees = 43.095181
+        let longitude:CLLocationDegrees = -79.006424
         
-        var latDelta:CLLocationDegrees = 0.05
-        var longDelta:CLLocationDegrees = 0.05
+        let latDelta:CLLocationDegrees = 0.05
+        let longDelta:CLLocationDegrees = 0.05
         
-        var span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        var location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-        var region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
         
         map.setRegion(region, animated: false)
         
-        var annotation = MKPointAnnotation()
+        let annotation = MKPointAnnotation()
         annotation.coordinate = location
         annotation.title = "Niagara Falls"
         annotation.subtitle = "One day I will go here..."
@@ -44,7 +44,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         map.addAnnotation(annotation)
     
         
-        var uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.action(gestureRecognizer:)))
+        let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.action(gestureRecognizer:)))
         uilpgr.minimumPressDuration = 2
         
         map.addGestureRecognizer(uilpgr)
@@ -54,11 +54,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         print("Gesture recognized")
         
-        var touchPoint = gestureRecognizer.location(in: self.map)
+        let touchPoint = gestureRecognizer.location(in: self.map)
         
-        var newCoordinate:CLLocationCoordinate2D = map.convert(touchPoint, toCoordinateFrom: self.map)
+        let newCoordinate:CLLocationCoordinate2D = map.convert(touchPoint, toCoordinateFrom: self.map)
         
-        var annotation = MKPointAnnotation()
+        let annotation = MKPointAnnotation()
         annotation.coordinate = newCoordinate
         annotation.title = "New Adventures Await"
         annotation.subtitle = "One day I will go here..."
@@ -71,17 +71,17 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         print(locations)
         
-        var userLocation: CLLocation = locations[0]
+        let userLocation: CLLocation = locations[0]
         
-        var latitude = userLocation.coordinate.latitude
-        var longitude = userLocation.coordinate.longitude
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
         
-        var latDelta:CLLocationDegrees = 0.05
-        var longDelta:CLLocationDegrees = 0.05
+        let latDelta:CLLocationDegrees = 0.05
+        let longDelta:CLLocationDegrees = 0.05
         
-        var span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        var location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-        var region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
         
         self.map.setRegion(region, animated: false)
         
