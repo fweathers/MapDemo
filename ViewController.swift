@@ -70,6 +70,21 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         print(locations)
+        
+        var userLocation: CLLocation = locations[0]
+        
+        var latitude = userLocation.coordinate.latitude
+        var longitude = userLocation.coordinate.longitude
+        
+        var latDelta:CLLocationDegrees = 0.05
+        var longDelta:CLLocationDegrees = 0.05
+        
+        var span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        var location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        var region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        
+        self.map.setRegion(region, animated: false)
+        
     }
 
     override func didReceiveMemoryWarning() {
